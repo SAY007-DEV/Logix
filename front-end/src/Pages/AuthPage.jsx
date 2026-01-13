@@ -28,12 +28,35 @@ const AuthPage = () => {
     console.log(isLogin ? 'Login' : 'Signup', { email, password, confirmPassword });
   };
 
+  // Generate stars for the background
+  const stars = Array.from({ length: 100 }, (_, i) => (
+    <div
+      key={i}
+      className="absolute w-1 h-1 bg-white rounded-full animate-pulse"
+      style={{
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        animationDelay: `${Math.random() * 3}s`,
+        animationDuration: `${2 + Math.random() * 2}s`,
+      }}
+    />
+  ));
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center p-4 relative overflow-hidden">
-      {/* Floating background elements */}
+    <div className="min-h-screen bg-gradient-to-br from-black via-indigo-900 to-black flex items-center justify-center p-4 relative overflow-hidden">
+      {/* Star field */}
+      {stars}
+
+      {/* Floating cosmic elements */}
       <div className="absolute top-10 left-10 w-72 h-72 bg-purple-500/20 rounded-full blur-3xl animate-float"></div>
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl animate-float-delayed"></div>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pink-500/10 rounded-full blur-2xl animate-pulse"></div>
+      
+      {/* Animated nebula */}
+      <div className="absolute top-20 right-20 w-80 h-80 bg-gradient-radial from-purple-600/30 via-transparent to-transparent rounded-full blur-2xl animate-spin-slow"></div>
+      
+      {/* Floating planet-like orb */}
+      <div className="absolute bottom-20 left-20 w-32 h-32 bg-gradient-to-br from-cyan-400/20 to-blue-600/20 rounded-full blur-xl animate-bounce-slow"></div>
 
       {/* Main card */}
       <div
